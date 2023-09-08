@@ -7,6 +7,7 @@ class SearchMaintenanceLogByName {
 
   async execute(HotelID) {
     const Maintenance = new MaintenanceClass(HotelID);
+    console.log("maintenance", Maintenance)
     const maintenanceLog = await Maintenance.getReport({
       $and: [{ Name: this._name }, { HotelID }],
     });
@@ -22,7 +23,9 @@ class SearchAllMaintenanceLogNames {
 
   async execute(HotelID) {
     const Maintenance = new MaintenanceClass(this._HotelID);
+    console.log("maintenance", Maintenance)
     const result = await Maintenance.getMaintenanceLogNames();
+    console.log(result, "result")
     if (!result.length) throw new Error('No Names Exists');
     return result;
   }

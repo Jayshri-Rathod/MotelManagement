@@ -75,17 +75,20 @@ class SearchAllCurrRes {
 class CreateCurrRes {
   constructor(newResObj) {
     this._NewResObj = newResObj;
+   
   }
 
   async execute(HotelID) {
+    console.log(HotelID, "hotelid")
     const today = moment().format('YYYY-MM-DD');
     const CurrentReservation = new CurrentReservationClass(HotelID);
-
+    console.log(CurrentReservation, "getcurrentReservationId")
     // Guest has not checked in yet so is not in the DailyReport
     if (this._NewResObj.Checked === 2) {
       const result = await CurrentReservation.createOneNewReservation(
         this._NewResObj
       );
+      console.log(result, "result")
 
       if (!result || result.length === 0) {
         throw new Error('Failed to Save');
@@ -93,9 +96,12 @@ class CreateCurrRes {
 
       // Emit Email Reservation Confirmation Command
       if (this._NewResObj.email.trim().length !== 0) {
+        // console.log(CurrentReservationClass.getMotelName(), "dddd")
+        console.log("getting this in motel :- ", CurrentReservationClass.getMotelName)
         const subjectLine = CurrentReservationClass.getMotelName.concat(
           ' Reservation Confirmation'
         );
+        // console.log(CurrentReservationClass.getMotelName, "dddd")
         EmailEvent.emit(EmailEvent.getJobName, {
           subjectLine,
           MotelName: CurrentReservationClass.getMotelName,

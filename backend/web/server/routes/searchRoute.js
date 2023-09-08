@@ -222,9 +222,11 @@ module.exports = (param) => {
 
     return Conductor.run(new SearchCustomersByName(firstName, sqlPool))
       .then((result) => {
+        console.log(result)
         return res.send(result);
       })
       .catch((err) => {
+        console.log(err, "errr")
         const error = new Error(err.message);
         error.status = 400;
         return next(error);

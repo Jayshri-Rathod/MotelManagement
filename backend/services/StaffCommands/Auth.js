@@ -14,7 +14,7 @@ class Login {
 
   async execute(HotelID) {
     const Staff = new StaffClass(HotelID);
-
+    console.log(Staff, "staff")
     // Not neccessary as this doesn't return Motel/User info
     // Even if token already exists, if user tries to login
     // a different way, server will send new token for new user
@@ -25,7 +25,7 @@ class Login {
 
     const query = { username: this._req.body.username };
     const staff = await Staff.findStaff(query);
-
+    console.log(staff, "staff")
     if (!staff) {
       throw new Error('Authentication Failed! No Staff Found');
     }

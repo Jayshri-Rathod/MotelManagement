@@ -17,6 +17,7 @@ module.exports = {
    * Checks for existence of Cookies or Token Expiration
    */
   loginCheck: (req, res) => {
+    console.log(req.user)
     if (req.user) {
       return res.status(200).send({ message: 'Authenticated' });
     }

@@ -90,7 +90,7 @@ class Customers extends Motel {
     sql = sql.concat(
       `FROM ${this._Customer} INNER JOIN ${this._IndCustomer} ON ${this._IndCustomer}.CustomerID=${this._Customer}.ID WHERE ${this._Customer}.first_name = ? AND ${this._IndCustomer}.HotelID = ${this._HotelID};`
     );
-
+  console.log(mysql.format(sql, [firstName]), "firstname")
     return mysql.format(sql, [firstName]);
   }
 

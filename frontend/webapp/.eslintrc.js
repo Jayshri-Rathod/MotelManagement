@@ -21,5 +21,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'no-alert': 'off',
     'no-underscore-dangle': 'off',
+    'no-use-before-define': 'off',
   },
 };

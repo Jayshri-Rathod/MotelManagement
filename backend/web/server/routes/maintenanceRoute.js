@@ -36,9 +36,11 @@ module.exports = () => {
       if (name) {
         return Conductor.run(new SearchMaintenanceLogByName(name))
           .then((result) => {
+            console.log(result, "result")
             res.send(result);
           })
           .catch((err) => {
+            console.log(err, "errr")
             const error = new Error(err.message);
             error.status = 400;
             next(error);
@@ -47,9 +49,11 @@ module.exports = () => {
       const { HotelID } = req.query;
       return Conductor.run(new SearchAllMaintenanceLogNames(HotelID))
         .then((result) => {
+          console.log(result, "result")
           res.send(result);
         })
         .catch((err) => {
+          console.log(err, "errr")
           const error = new Error(err.message);
           error.status = 400;
           next(error);

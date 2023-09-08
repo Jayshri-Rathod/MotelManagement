@@ -7,6 +7,7 @@ class SearchCustomersByName {
   }
 
   async execute(HotelID) {
+    console.log("this data", this._pool, this._firstName)
     const Customer = new CustomerClass(HotelID);
     const result = await this._pool.query(
       Customer.getIndCustomerByFirstName(this._firstName)

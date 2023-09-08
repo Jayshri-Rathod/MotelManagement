@@ -17,6 +17,7 @@
     "seedToProd": " npx sequelize-cli db:seed:all --env production",
     "migrateToDev": " npx sequelize-cli db:migrate",
     "seedToDev": "npx sequelize-cli db:seed:all",
+    "migratemotel":"npx sequelize-cli db:migrate:up --name 20201129173058-Motels",
     "undoAllProdMigrations": "npx sequelize-cli db:seed:undo --env production | npx sequelize-cli db:migrate:undo:all --env production"
   },
   "author": "Ivan Zou",
@@ -39,6 +40,7 @@
     "json2csv": "^5.0.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
+    "kerberos": "^2.0.2",
     "lodash": "^4.17.20",
     "moment": "^2.25.3",
     "moment-timezone": "^0.5.31",

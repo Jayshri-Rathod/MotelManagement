@@ -16,6 +16,7 @@ class CurrentReservation extends Reservation {
       ReservationModel,
       'CurrentReservation'
     );
+    console.log(this._connection, "comming here ")
     switch (HotelID) {
       case CurrentReservation.getLazyUID: {
         this._HotelID = CurrentReservation.getLazyUID;
@@ -29,11 +30,12 @@ class CurrentReservation extends Reservation {
         this._HotelID = null;
     }
   }
-
+  
   /**
    * @returns One document in collection with matching BookingID and Checked Field
    */
   getReservationByIDWithCheckField(BookingID, Checked) {
+    console.log(BookingID,Checked, "this.hotelid", this._HotelID)
     return this._connection
       .findOne({
         $and: [{ BookingID }, { HotelID: this._HotelID }, { Checked }],

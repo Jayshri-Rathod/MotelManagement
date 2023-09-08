@@ -135,6 +135,7 @@ module.exports = () => {
           return res.send(result);
         })
         .catch((err) => {
+          console.log(err, "errrr")
           const error = new Error(err.message);
           error.status = 400;
           return next(error);

@@ -34,6 +34,7 @@ class Maintenance extends Report {
    * Returns Current Referenced HotelID
    */
   get HotelID() {
+    console.log("comming here 2", this._HotelID)
     return this._HotelID;
   }
 
@@ -42,6 +43,7 @@ class Maintenance extends Report {
    * @returns Array of Objects with Name and_id field
    */
   getMaintenanceLogNames() {
+    console.log("")
     return this._connection
       .find({ HotelID: this._HotelID })
       .select('Name')

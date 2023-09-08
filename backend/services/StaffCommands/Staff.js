@@ -21,6 +21,7 @@ class SearchAllStaff {
 
 class AddNewStaff {
   constructor(newStaffObj) {
+    console.log(newStaffObj, "data")
     this._NewStaffObj = newStaffObj;
   }
 

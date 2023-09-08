@@ -19,12 +19,14 @@ class Motel {
    */
   constructor(HotelID) {
     // Constant Static Variables
+    console.log("user i")
     Object.defineProperty(Motel, '_LazyUID', {
       value: LazyUConfig.HotelID,
     });
     Object.defineProperty(Motel, '_FairValueID', {
       value: FairValueConfig.HotelID,
     });
+    console.log(LazyUConfig, "getting this ",FairValueConfig)
     switch (HotelID) {
       case Motel._LazyUID:
         Motel._RoomNum = LazyUConfig.RoomNum;
@@ -57,6 +59,8 @@ class Motel {
    * @returns Name of the Motel
    */
   static get getMotelName() {
+    console.log(Motel, "motel")
+    // return Motel._MotelName;
     return Motel._MotelName;
   }
 
